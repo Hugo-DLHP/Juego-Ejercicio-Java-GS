@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class principal {
     public static void main(String[] args) {
 
-        Dado nuevoDado = new Dado();
+        //Dado nuevoDado = new Dado();
 
-        int tirada;
+        //int tirada;
 
        //nuevoDado.nuevosValores(); ---> pendiente de corrección
        
@@ -20,7 +20,7 @@ public class principal {
        Juego juego_1 = new Juego();
 
 
-        final int PUNTUACION_FINAL = 20;
+        final int PUNTUACION_FINAL = 100;
         int tusPuntos = 0;
         int iaPuntos = 0;
 
@@ -47,7 +47,7 @@ public class principal {
                 System.out.println();
                 System.out.println();
                 texto = "Jugador 2";
-                resultado = juego_1.turno(tiradasJugador, contPosJug, texto);
+                resultado = juego_1.turno(tiradasIa, contPosJug, texto);
                 iaPuntos = iaPuntos + resultado[1];
                 contPosIa = contPosIa + resultado[0];
             }

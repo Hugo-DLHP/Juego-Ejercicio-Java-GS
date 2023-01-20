@@ -6,14 +6,17 @@ public class Juego {
 
         
         Dado nuevoDado = new Dado();
+        int tirada = nuevoDado.tirarDado();
         
         int datos[] = {0, 0}; 
         //Primera posicion-->[0] es la posicion del array y la segunda posicion-->[1] es la suma de los puntos
         int contPos = 0;
 
-        array[posicion] = nuevoDado.tirarDado();
+        array[posicion] = tirada;
 
         System.out.println("En la tirada del " + texto + " ha salido un " + array[posicion]);
+        
+        nuevoDado.dibujarDado(tirada);
         datos[1] = datos[1] + array[posicion];
         posicion ++;
         contPos++;
