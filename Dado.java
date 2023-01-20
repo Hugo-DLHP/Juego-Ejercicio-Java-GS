@@ -67,7 +67,77 @@ public class Dado {
         }
     }
 
-    public int tirarDado() {       
-        return (int) (Math.random()*((GetMaximo() - GetMinimo()) + 1) + GetMinimo());
+    public int tirarDado() {  
+        int resultado =  (int) (Math.random()*((GetMaximo() - GetMinimo()) + 1) + GetMinimo());    
+        return resultado;
     }
+
+    public void dibujarDado(int resultado) {
+
+        switch (resultado) {
+            case 1:
+                System.out.println(" --------- \n|         |\n|    +    |\n|         |\n --------- ");
+                break;
+
+            case 2:
+                System.out.println(" --------- \n|       + |\n|         |\n| +       |\n --------- ");
+                break;
+
+            case 3:
+                System.out.println(" --------- \n|       + |\n|    +    |\n| +       |\n --------- ");
+                break;
+
+            case 4:
+                System.out.println(" --------- \n| +     + |\n|         |\n| +     + |\n --------- ");
+                break;
+
+            case 5:
+                System.out.println(" --------- \n| +     + |\n|    +    |\n| +     + |\n --------- ");
+                break;
+
+            case 6:
+                System.out.println(" --------- \n| +     + |\n| +     + |\n| +     + |\n --------- ");
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+    //  ---------
+    // |         |
+    // |    +    |
+    // |         |
+    //  ---------
+
+    //  ---------
+    // |       + |
+    // |         |
+    // | +       |
+    //  ---------
+
+    //  ---------
+    // |       + |
+    // |    +    |
+    // | +       |
+    //  ---------
+
+    //  ---------
+    // | +     + |
+    // |         |
+    // | +     + |
+    //  ---------
+
+    //  ---------
+    // | +     + |
+    // |    +    |
+    // | +     + |
+    //  ---------
+
+    //  ---------
+    // | +     + |
+    // | +     + |
+    // | +     + |
+    //  ---------
 }
