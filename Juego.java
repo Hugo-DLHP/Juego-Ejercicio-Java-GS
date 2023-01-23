@@ -1,10 +1,24 @@
 package DAW.Programación.Ejercicios.programas.Trim_2.juego;
 
+import java.util.Scanner;
+
 public class Juego {
 
-    public int[] turno(int array[], int posicion, String texto) {
 
-        
+    Jugadores vector[];
+
+    public void crearJugadores(int numeroJugadores, Scanner sc) {
+
+        this.vector = new Jugadores[numeroJugadores];
+        for (int i = 0; i < numeroJugadores; i++) {
+            System.out.println("Introduzca el nombre:");
+            String dato = sc.nextLine();
+            vector[i] = new Jugadores(dato);
+        }
+    }
+
+
+    public int[] turno(int array[], int posicion, String texto) {        
         Dado nuevoDado = new Dado();
         int tirada = nuevoDado.tirarDado();
         

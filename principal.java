@@ -4,84 +4,45 @@ import java.util.Scanner;
 
 public class principal {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        //Dado nuevoDado = new Dado();
 
-        //int tirada;
-
-       //nuevoDado.nuevosValores(); ---> pendiente de corrección
        
-       //tirada = nuevoDado.tirarDado();
-       // System.out.println(tirada);
-       // nuevoDado.dibujarDado(tirada);
-
-       Scanner sc = new Scanner(System.in);
-
-       Juego juego_1 = new Juego();
-
-
         final int PUNTUACION_FINAL = 100;
-        int tusPuntos = 0;
-        int iaPuntos = 0;
 
-        int tiradasJugador[] = new int[40];
-        int tiradasIa[] = new int[40];
-        
+        Juego juego_1 = new Juego();     
         int resultado[] = new int[2];
-        int contPosJug = 0;
-        int contPosIa = 0;
+        int numeroJugadores;
+        System.out.println("Cuantos jugadores sois");
+        numeroJugadores = sc.nextInt();
+        sc.nextLine();
+        juego_1.crearJugadores(numeroJugadores, sc);
 
-        String texto = "";
-
-        int turno = 2;
 
         do {
-            if((turno%2) == 0) {
+            for (Jugadores jugadores : juego_1.vector) {                    
                 System.out.println();
-                System.out.println();
-                texto = "Jugador 1";
-                resultado = juego_1.turno(tiradasJugador, contPosJug, texto);
-                tusPuntos = tusPuntos + resultado[1];
-                contPosJug = contPosJug + resultado[0];
-            } else {
-                System.out.println();
-                System.out.println();
-                texto = "Jugador 2";
-                resultado = juego_1.turno(tiradasIa, contPosJug, texto);
-                iaPuntos = iaPuntos + resultado[1];
-                contPosIa = contPosIa + resultado[0];
+                System.out.println();                
+                resultado = juego_1.turno(jugadores.getTiradasJugador(), jugadores.getContPosJugador(), jugadores.getNombreJugador());
+                jugadores.setPuntosJugador(jugadores.getPuntosJugador() + resultado[1]);
+                jugadores.setContPosJugador(jugadores.getContPosJugador() + resultado[0]);
             }
 
-            turno++;
-
-            System.out.println("|- - - -PUNTUACIONES- - - - -");
-            System.out.println("|      Jugador 1: " + tusPuntos);
-            System.out.println("|----------------------------");
-            System.out.println("|      Jugador 2: " + iaPuntos);
-
-
+            for (Jugadores jugadores : juego_1.vector) {
+                System.out.println("|- - - -PUNTUACIONES- - - - -");
+                System.out.println("|      " + jugadores.getNombreJugador() + ": " + jugadores.getPuntosJugador());
+                System.out.println("|----------------------------");
+            }
+    
             System.out.println();
             System.out.println("_____________________________________________");
-
             System.out.println("PULSA ~ENTER~ PARA PASAR AL SIGUIENTE JUGADOR");
             System.out.println("_____________________________________________");
             sc.nextLine();
             
-        } while (tusPuntos < PUNTUACION_FINAL && iaPuntos < PUNTUACION_FINAL);
+    
 
-        if(tusPuntos > PUNTUACION_FINAL) {
-            System.out.println();            
-            System.out.println();
-            System.out.println("_____________________________________________");
-            System.out.println("ENHORABUENA HAS GANADO");
-            System.out.println("_____________________________________________");
-        } else {
-            System.out.println();
-            System.out.println();
-            System.out.println("_____________________________________________");
-            System.out.println("VAYA HAS PERDIDO");
-            System.out.println("_____________________________________________");
-        }
+        } while ();
 
     }
 }
