@@ -28,7 +28,7 @@ public class Juego {
 
         array[posicion] = tirada;
 
-        System.out.println("En la tirada del " + texto + " ha salido un " + array[posicion]);
+        System.out.println("En la tirada de " + texto + " ha salido un " + array[posicion]);
         
         nuevoDado.dibujarDado(tirada);
         datos[1] = datos[1] + array[posicion];
@@ -37,5 +37,13 @@ public class Juego {
         datos[0] = contPos;
 
         return datos;
+    }
+
+    public boolean comprobarGanador(Jugadores jugadores) {
+        if (jugadores.getPuntosJugador() >= principal.PUNTUACION_FINAL) {
+            return true;
+        } else {
+            return false;
+        }        
     }
 }
